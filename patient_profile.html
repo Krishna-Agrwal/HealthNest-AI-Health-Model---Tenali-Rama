@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthNest Dashboard</title>
+  <style>
+    /* Reset and basic styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #d0e6f6, #ffffff); /* Light Blue to White */
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background: #12aa70; /* Dark Blue */
+      color: #ffffff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    header a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 0.9em;
+      transition: color 0.3s ease;
+    }
+
+    header a:hover {
+      color: #b0d4f1; /* Light Blue */
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px; /* Adjusted Width */
+      height: 100%;
+      background: #12aa70; /* Blue */
+      padding: 20px 15px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      font-size: 0.95em;
+      font-weight: 500;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .sidebar a i {
+      margin-right: 10px;
+      font-size: 1.2em;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #36bd89; /* Bright Blue */
+      transform: translateX(8px);
+    }
+
+    /* Main Content */
+    .container {
+      flex: 1;
+      display: flex;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    /* Profile Card */
+    .profile-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      color: #12aa70;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-card img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #12aa70;
+      margin-right: 20px;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info h3 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .profile-info p {
+      color: #000000;
+      margin-bottom: 5px;
+      font-size: 1em;
+    }
+
+    /* Stats Cards */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .stats-card {
+      background: #f0f8ff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      color: #000000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .stats-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    .progress-circle {
+      width: 120px; /* Increased Size */
+      height: 120px; /* Increased Size */
+      border-radius: 50%;
+      background: conic-gradient(#12aa70 45%, rgba(0, 0, 0, 0.1) 45%);
+      margin: 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #000000;
+    }
+    .logomain {
+      width: 180px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #2ad86d;
+      background: #e6f2ff;
+      box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><img class="logomain" src="Images/logo_no_back.png" alt=""></div>
+    <nav>
+      <a href="#">Welcome Krishna!</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Settings</a>
+    </nav>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <a href="#" class="active"><i>🏠</i> Profile</a>
+      <a href="#"><i>💊</i> Current Medication</a>
+      <a href="#"><i>📊</i> Insights</a>
+      <a href="#"><i>🧪</i> Lab Reports</a>
+      <a href="#"><i>📋</i> Prescriptions</a>
+      <a href="#"><i>⏰</i> Alerts</a>
+      <a href="#"><i>💳</i> Payment Receipts</a>
+    </aside>
+    <main class="content">
+      <div class="profile-card">
+        <img src="https://via.placeholder.com/90" alt="User Icon">
+        <div class="profile-info">
+          <h3>Krishna</h3>
+          <p>Patient ID: 11001</p>
+          <p>Age: 32</p>
+          <p>Gender: Male</p>
+          <p>Disease: Cancer</p>
+          <p>Current Medication: Chemotherapy</p>
+          <p>Latest Vitals: 25 November 2024</p>
+          <p>Oxygen: 98%</p>
+          <p>Blood Pressure: 120/80 mmHg</p>
+          <p>Heart Rate: 72 per min</p>
+          <p>Weight: 68 kg</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stats-card">
+          <h4>Medical Conditions</h4>
+          <div class="progress-circle">30%</div>
+          <p>Normal to Critical</p>
+        </div>
+        <div class="stats-card">
+          <h4>Vitals</h4>
+          <div class="progress-circle">45%</div>
+          <p>Balanced to Risky</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- <footer>
+    © 2025 Healthcare Dashboard
+  </footer> -->
+</body>
+</html>

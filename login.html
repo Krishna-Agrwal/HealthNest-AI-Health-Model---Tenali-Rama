@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LPStyles.css">
+    <title>Login | Health Nest</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Login to Your Account</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register Here</a></p>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting traditionally
+
+            // Get user input values
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // Check if credentials match the given email and password
+            if (email === "Ravi_demo@gmail.com" && password === "ravi_demo") {
+                alert("Login Successful! Redirecting to Doctor's Dashboard...");
+                window.location.href = "doctor_dashboard.html";
+            }else if (email === "Krishna_demo@gmail.com" && password === "krishna_demo") {
+                alert("Login Successful! Redirecting to Patient's Profile...");
+                window.location.href = "patient_dashboard.html";
+            }else {
+                alert("Invalid Email or Password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
